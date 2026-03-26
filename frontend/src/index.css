@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset total para preencher a tela toda */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  background-color: #f8fafc; /* Cor de fundo suave */
+}
+
+/* Para que o conteúdo não fique centralizado e espremido */
+#root {
+  max-width: none !important;
+  text-align: left !important;
+}

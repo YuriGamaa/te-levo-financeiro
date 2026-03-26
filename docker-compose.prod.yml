@@ -1,0 +1,37 @@
+﻿services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: televo_api_prod
+    restart: always
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+    volumes:
+      - ./backend:/app
+    networks:
+      - televo_network
+
+  db:
+    image: mysql:8.0
+    container_name: televo_db_prod
+    restart: always
+    environment:
+      MYSQL_DATABASE: televo_financeiro
+      MYSQL_ROOT_PASSWORD: password_segura_do_senhor
+    networks:
+      - televo_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: televo_front_prod
+    restart: always
+    networks:
+      - televo_network
+
+networks:
+  televo_network:
+    driver: bridge
