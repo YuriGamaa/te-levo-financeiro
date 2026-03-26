@@ -1,4 +1,4 @@
-# Logs
+# --- Logs ---
 logs
 *.log
 npm-debug.log*
@@ -7,12 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# --- Dependências (NUNCA SUBIR) ---
 node_modules
-dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# --- Build (LIBERADO PARA DEPLOY VIA IP) ---
+# Removi o 'dist' daqui para que a VPS receba o frontend pronto.
+# Se o senhor usar subpastas, garanta que o build do Vite suba.
+
+# --- Editor directories and files ---
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +26,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# --- Laravel Específicos ---
+backend/.env
+backend/storage/*.key
+backend/vendor/
+backend/public/storage
+backend/public/hot
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/testing/*
+backend/storage/framework/views/*
